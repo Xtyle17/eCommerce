@@ -1,0 +1,16 @@
+nav {
+  display: flex;
+  flex-direction: row;
+  column-gap: 30px;
+  height: 30px;
+  justify-content: center;
+  align-self: center;
+  width: 300px;
+  /* background-color: aqua; */
+  margin-left: 5px;
+  margin-right: 5px;
+}
+
+.items {
+  margin: 0;
+}
