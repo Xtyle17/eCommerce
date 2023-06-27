@@ -7,13 +7,13 @@ const Nav = () => {
     <>
       <nav>
         <Link to={"/"}>
-          <p className="items">home</p>
+          <p className="nav-items">home</p>
         </Link>
         <Link to={"/products"}>
-          <p className="items">products</p>
+          <p className="nav-items">products</p>
         </Link>
         <Link to={"/about"}>
-          <p className="items">about</p>
+          <p className="nav-items">about</p>
         </Link>
       </nav>
       <Suspense>

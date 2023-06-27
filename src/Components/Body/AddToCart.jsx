@@ -4,16 +4,15 @@ import { initialState } from "../reducer";
 import { Products } from "../../Products/products";
 import { CartContext } from "../Provider/cartProvider";
 const AddToCart = ({ product }) => {
-  const { state, dispatch } = useContext(CartContext);
+  const { state, dispatch, setCartItemCounts, setCartItemCount } =
+    useContext(CartContext);
   const buttonRef = useRef(null);
   const handleClick = (item) => {
-    dispatch({ type: ACTIONS.ADD_CART, payload: item });
-    buttonRef.current.blur();
+    dispatch({ type: ACTIONS.ADD_CART, payload: { item: item } });
+
+    setCartItemCounts((prev) => prev + 1);
   };
 
-  useEffect(() => {
-    console.log(state.cart);
-  }, [state.cart]);
   return (
     <div>
       <button

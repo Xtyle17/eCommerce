@@ -22,11 +22,9 @@ const Product = () => {
   return (
     <div>
       <div>
-        <Suspense fallback={<h1>loading...</h1>}>
-          <img src={items.img} />
-          <h1>{items.name}</h1>
-          <h3>{items.price}</h3>
-        </Suspense>
+        <img src={items.img} />
+        <h1>{items.name}</h1>
+        <h3>{items.price}</h3>
       </div>
     </div>
   );

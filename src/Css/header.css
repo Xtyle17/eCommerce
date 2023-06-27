@@ -30,12 +30,19 @@ input {
   border-radius: 5px;
   min-width: 50%;
 }
+
 @media (max-width: 768px) {
   .inp-search {
     width: 50%;
   }
   .btn-search {
     width: 20%;
+  }
+  .header {
+    width: 100%;
+  }
+  .buttons {
+    width: 30%;
   }
 }
 @media (max-width: 480px) {
@@ -49,6 +56,7 @@ input {
     column-gap: 0px;
   }
 }
+
 .btn-search {
   display: flex;
   height: 30px;
@@ -57,7 +65,7 @@ input {
   margin-left: 10px;
   align-self: center;
 }
-.buttons {
+.buttons-links {
   display: flex;
   align-items: center;
   column-gap: 10px;
@@ -67,4 +75,24 @@ input {
   height: 30px;
   padding: 2px;
   font-size: 10px;
+}
+
+.navbar__list.collapsed {
+  display: none;
+}
+
+.toggle-button {
+  position: absolute;
+  top: 0.75rem;
+  right: 1rem;
+  display: none;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 30px;
+  height: 21px;
+}
+@media (max-width: 600px) {
+  .toggle-button {
+    display: block;
+  }
 }

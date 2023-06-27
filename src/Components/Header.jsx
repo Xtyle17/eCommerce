@@ -1,9 +1,18 @@
-import React from "react";
+import React, { useState, useContext } from "react";
 import "../Css/header.css";
 import { Link } from "react-router-dom";
 import * as FaIcons from "react-icons/fa";
 import * as FaIconz from "react-icons/fi";
+import useWindowSizeHook from "./Custom-Hooks/useWindowSizeHook";
+import { CartContext } from "./Provider/cartProvider";
 const Header = () => {
+  const { width } = useWindowSizeHook();
+  const [isCollapsed, setIsCollapsed] = useState(true);
+  const { cartItemCounts, cartItemCount, state } = useContext(CartContext);
+  const toggleNavbar = () => {
+    setIsCollapsed(!isCollapsed);
+  };
+
   return (
     <div className="header">
       <div className="Logo">
@@ -22,10 +31,12 @@ const Header = () => {
           <FaIcons.FaSearch />
         </button>
       </div>
-      <div className="buttons">
-        <FaIconz.FiUser></FaIconz.FiUser>
+
+      <div className="buttons-links">
+        <FaIconz.FiUser />
         <Link to={"/cart"}>
           <FaIcons.FaShoppingCart />
+          {cartItemCount}
         </Link>
         <FaIconz.FiSettings size={15} />
 
