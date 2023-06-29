@@ -1,5 +1,12 @@
-p {
-  align-items: center;
+.head {
+  display: flex;
+  justify-content: space-between;
+}
+.ttl {
+  justify-self: end;
+  width: 10rem;
+  display: flex;
+  flex-direction: column;
 }
 .cart {
   display: flex;

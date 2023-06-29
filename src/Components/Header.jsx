@@ -35,8 +35,8 @@ const Header = () => {
       <div className="buttons-links">
         <FaIconz.FiUser className="links" />
         <Link to={"/cart"} className="links">
-          <FaIcons.FaShoppingCart />
-          {cartItemCount}
+          <FaIcons.FaShoppingCart className="crt-icn" />
+          <p className="rdn-cnt">{cartItemCount >= 1 ? cartItemCount : ""}</p>
         </Link>
         <FaIconz.FiSettings size={15} className="links" />
 

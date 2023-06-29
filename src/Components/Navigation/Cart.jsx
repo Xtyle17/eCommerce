@@ -3,15 +3,30 @@ import { reducer, initialState, ACTIONS } from "../reducer";
 import { CartContext } from "../Provider/cartProvider";
 import "../../Css/cart.css";
 const Cart = () => {
-  const { state, dispatch, setCartItemCounts } = useContext(CartContext);
+  const { state, dispatch, calculateTotal, getTotalQuantity } =
+    useContext(CartContext);
+  const quantity = getTotalQuantity();
+  const total = calculateTotal();
   const handleClick = (id) => {
     dispatch({ type: ACTIONS.REMOVE_CART, payload: id });
   };
+  const handleIncrement = (id) => {
+    dispatch({ type: ACTIONS.INCREMENT_QUANTITY, payload: { item: id } });
+  };
+  const handleDecrement = (id) => {
+    dispatch({ type: ACTIONS.DECREMENT_QUANTITY, payload: { item: id } });
+  };
   console.log(state.cart);
-  const items = state.cart.map((item) => item);
+
   return (
     <div>
-      <h1>CART</h1>
+      <div className="head">
+        <h1>CART</h1>
+        <div className="ttl">
+          <span>Total: {total >= 1 ? `$${total}` : ""}</span>
+          <span>Total Items:{quantity >= 1 ? quantity : ""} </span>
+        </div>
+      </div>
       <div>
         {state.cart.length ? (
           state.cart.map((item) => (
@@ -25,13 +40,21 @@ const Cart = () => {
                 <span>total Price: ${item.price * item.count}</span>
                 <span>count:{item.count}</span>
                 <div className="functions">
-                  <button className="btn-decrement">-</button>
+                  <button
+                    className="btn-decrement"
+                    onClick={() => handleDecrement(item)}>
+                    -
+                  </button>
                   <button
                     onClick={() => handleClick(item.id)}
                     className="prod-count">
                     remove to cart
                   </button>
-                  <button className="btn-increment">+</button>
+                  <button
+                    className="btn-increment"
+                    onClick={() => handleIncrement(item)}>
+                    +
+                  </button>
                 </div>
               </div>
             </div>

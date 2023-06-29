@@ -1,5 +1,5 @@
 .header {
-  background-color: red;
+  background-color: lightcoral;
   display: flex;
   align-items: center;
   column-gap: 10px;
@@ -31,32 +31,6 @@ input {
   min-width: 50%;
 }
 
-@media (max-width: 768px) {
-  .inp-search {
-    width: 50%;
-  }
-  .btn-search {
-    width: 20%;
-  }
-  .header {
-    width: 100%;
-  }
-  .buttons {
-    width: 30%;
-  }
-}
-@media (max-width: 480px) {
-  .inp-search {
-    width: 30%;
-  }
-  .btn-search {
-    width: 10%;
-  }
-  .buttons {
-    column-gap: 0px;
-  }
-}
-
 .btn-search {
   display: flex;
   height: 30px;
@@ -81,6 +55,23 @@ input {
   display: none;
 }
 
+.links {
+  display: flex;
+  flex-direction: row;
+}
+.rdn-cnt {
+  position: absolute;
+  top: 18px;
+  right: 80px;
+  background-color: none;
+  color: red;
+  border-radius: 50%;
+  padding: 5px;
+  font-size: 15px;
+}
+.crt-icn {
+  color: antiquewhite;
+}
 .toggle-button {
   position: absolute;
   top: 0.75rem;
@@ -107,5 +98,30 @@ input {
 @media (min-width: 700px) {
   .menu {
     display: none;
+  }
+}
+@media (max-width: 768px) {
+  .inp-search {
+    width: 50%;
+  }
+  .btn-search {
+    width: 20%;
+  }
+  .header {
+    width: 100%;
+  }
+  .buttons {
+    width: 30%;
+  }
+}
+@media (max-width: 480px) {
+  .inp-search {
+    width: 30%;
+  }
+  .btn-search {
+    width: 10%;
+  }
+  .buttons {
+    column-gap: 0px;
   }
 }

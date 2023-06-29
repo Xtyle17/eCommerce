@@ -42,6 +42,29 @@ export const reducer = (state, action) => {
       };
     case ACTIONS.ADD_COUNT:
       return { ...state, cart: [...state.cart, action.count] };
+
+    case ACTIONS.INCREMENT_QUANTITY:
+      return {
+        ...state,
+        cart: state.cart.map((cartItem) =>
+          cartItem.id === action.payload.item.id
+            ? { ...cartItem, count: cartItem.count + 1 }
+            : cartItem
+        ),
+      };
+
+    case ACTIONS.DECREMENT_QUANTITY:
+      return {
+        ...state,
+        cart: state.cart.map((cartItem) =>
+          cartItem.id === action.payload.item.id
+            ? {
+                ...cartItem,
+                count: cartItem.count > 1 ? cartItem.count - 1 : 1,
+              }
+            : cartItem
+        ),
+      };
     default:
       return state;
   }
