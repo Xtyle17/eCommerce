@@ -8,7 +8,7 @@ export const initialState = {
 export const ACTIONS = {
   ADD_CART: "add_cart",
   REMOVE_CART: "remove_cart",
-  ADD_COUNT: "add_count",
+
   INCREMENT_QUANTITY: "increment_quantity",
   DECREMENT_QUANTITY: "decrement_quantity",
 };

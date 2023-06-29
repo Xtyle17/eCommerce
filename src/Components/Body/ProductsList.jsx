@@ -1,5 +1,5 @@
 import React, { useState, useReducer, useContext } from "react";
-import { Products } from "../../Products/products";
+
 import "../../Css/products.css";
 import { Link } from "react-router-dom";
 import AddToCart from "./AddToCart";
@@ -36,7 +36,7 @@ const ProductsList = () => {
               <img src={product.img}></img>
               <h2>{product.name}</h2>
             </Link>
-            <h4>{product.price}</h4>
+            <h4>${product.price}</h4>
             <p>
               {product.description.length <= 15
                 ? product.description

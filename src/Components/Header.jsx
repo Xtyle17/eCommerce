@@ -33,14 +33,15 @@ const Header = () => {
       </div>
 
       <div className="buttons-links">
-        <FaIconz.FiUser />
-        <Link to={"/cart"}>
+        <FaIconz.FiUser className="links" />
+        <Link to={"/cart"} className="links">
           <FaIcons.FaShoppingCart />
           {cartItemCount}
         </Link>
-        <FaIconz.FiSettings size={15} />
+        <FaIconz.FiSettings size={15} className="links" />
 
         <button className="item">LogOut</button>
+        <div className="menu">menu</div>
       </div>
     </div>
   );

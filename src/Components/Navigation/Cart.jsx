@@ -6,22 +6,34 @@ const Cart = () => {
   const { state, dispatch, setCartItemCounts } = useContext(CartContext);
   const handleClick = (id) => {
     dispatch({ type: ACTIONS.REMOVE_CART, payload: id });
-    setCartItemCounts((prev) => prev - 1);
   };
   console.log(state.cart);
-
+  const items = state.cart.map((item) => item);
   return (
     <div>
       <h1>CART</h1>
       <div>
         {state.cart.length ? (
-          state.cart.map((item, index) => (
-            <div key={`${item.id}-${index}`}>
-              <img src={item.img} alt={item.name} />
-              <h2>{item.name}</h2>
-              <button onClick={() => handleClick(item.id)}>
-                remove to cart
-              </button>
+          state.cart.map((item) => (
+            <div key={item.id} className="cart">
+              <div className="product">
+                <img src={item.img} alt={item.name} />
+                <h2>{item.name}</h2>
+              </div>
+              <div className="side">
+                <span>price:${item.price}</span>
+                <span>total Price: ${item.price * item.count}</span>
+                <span>count:{item.count}</span>
+                <div className="functions">
+                  <button className="btn-decrement">-</button>
+                  <button
+                    onClick={() => handleClick(item.id)}
+                    className="prod-count">
+                    remove to cart
+                  </button>
+                  <button className="btn-increment">+</button>
+                </div>
+              </div>
             </div>
           ))
         ) : (

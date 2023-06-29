@@ -8,7 +8,7 @@ export const CartProvider = ({ children }) => {
   const [cartItemCounts, setCartItemCounts] = useState(0);
   const [state, dispatch] = useReducer(reducer, initialState);
   const cartItemCount = state.cart.reduce(
-    (acc, data) => (acc += data.count),
+    (acc, item) => (acc += item.count),
     0
   );
   return (
