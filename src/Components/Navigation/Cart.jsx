@@ -22,10 +22,15 @@ const Cart = () => {
     <div>
       <div className="head">
         <h1>CART</h1>
-        <div className="ttl">
-          <span>Total: {total >= 1 ? `$${total}` : ""}</span>
-          <span>Total Items:{quantity >= 1 ? quantity : ""} </span>
-        </div>
+
+        {state.cart.length ? (
+          <div className="ttl">
+            <span>Total: {`$${total}`}</span>
+            <span>Total Items:{quantity} </span>
+          </div>
+        ) : (
+          ""
+        )}
       </div>
       <div>
         {state.cart.length ? (
@@ -38,7 +43,7 @@ const Cart = () => {
               <div className="side">
                 <span>price:${item.price}</span>
                 <span>total Price: ${item.price * item.count}</span>
-                <span>count:{item.count}</span>
+                <span>quantity:{item.count}</span>
                 <div className="functions">
                   <button
                     className="btn-decrement"

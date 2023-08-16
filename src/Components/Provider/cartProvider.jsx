@@ -1,13 +1,15 @@
-import React, { createContext, useReducer, useRef, useState } from "react";
+import React, { createContext, useReducer, useState, useEffect } from "react";
 import { reducer, initialState } from "../reducer";
-
+import { Products } from "../../Products/products";
 export const CartContext = createContext();
 
 export const CartProvider = ({ children }) => {
-  const countRef = useRef(0);
   const [totals, setTotals] = useState(0);
   const [cartItemCounts, setCartItemCounts] = useState(0);
   const [state, dispatch] = useReducer(reducer, initialState);
+  const [search, setSearch] = useState("");
+  const [searchResult, setSearchResult] = useState([]);
+  const [productType, setProductType] = useState("");
   const cartItemCount = state.cart.reduce(
     (acc, item) => (acc += item.count),
     0
@@ -35,6 +37,16 @@ export const CartProvider = ({ children }) => {
     });
     return quantity;
   };
+
+  useEffect(() => {
+    const filteredResult = Products.filter(
+      (items) =>
+        items.name.toLowerCase().includes(search.toLowerCase()) &&
+        (productType.toLowerCase() === "" ||
+          items.type.toLowerCase() === productType.toLowerCase())
+    );
+    setSearchResult(filteredResult);
+  }, [search, productType]);
   return (
     <CartContext.Provider
       value={{
@@ -45,6 +57,11 @@ export const CartProvider = ({ children }) => {
         cartItemCount,
         calculateTotal,
         getTotalQuantity,
+        search,
+        setSearch,
+        searchResult,
+        productType,
+        setProductType,
       }}>
       {children}
     </CartContext.Provider>

@@ -8,7 +8,7 @@ import { CartContext } from "./Provider/cartProvider";
 const Header = () => {
   const { width } = useWindowSizeHook();
   const [isCollapsed, setIsCollapsed] = useState(true);
-  const { cartItemCounts, cartItemCount, state } = useContext(CartContext);
+  const { cartItemCount, state, search, setSearch } = useContext(CartContext);
   const toggleNavbar = () => {
     setIsCollapsed(!isCollapsed);
   };
@@ -21,27 +21,39 @@ const Header = () => {
         </Link>
         <h2 className="Name">shopping</h2>
       </div>
-      <div className="search">
+      <form className="search" onSubmit={(e) => e.preventDefault()}>
         <input
           type="searchbar"
           className="inp-search"
           placeholder="Search..."
+          value={search}
+          onChange={(e) => setSearch(e.target.value)}
         />
         <button className="btn-search">
-          <FaIcons.FaSearch />
+          <FaIcons.FaSearch style={{ width: "50px" }} />
         </button>
-      </div>
+      </form>
 
       <div className="buttons-links">
         <FaIconz.FiUser className="links" />
-        <Link to={"/cart"} className="links">
-          <FaIcons.FaShoppingCart className="crt-icn" />
+        <Link to={"/cart"} className="link">
+          <FaIcons.FaShoppingCart
+            className="crt-icn"
+            style={{ color: cartItemCount >= 1 ? "green" : "antiquewhite" }}
+          />
           <p className="rdn-cnt">{cartItemCount >= 1 ? cartItemCount : ""}</p>
         </Link>
         <FaIconz.FiSettings size={15} className="links" />
 
         <button className="item">LogOut</button>
-        <div className="menu">menu</div>
+        <button className="menu" onClick={toggleNavbar}>
+          <FaIconz.FiMenu />
+        </button>
+        <ul className={isCollapsed ? "collapsed" : ""}>
+          <li>Account</li>
+          <li>settings</li>
+          <li>logout</li>
+        </ul>
       </div>
     </div>
   );

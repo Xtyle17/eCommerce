@@ -61,16 +61,20 @@ input {
 }
 .rdn-cnt {
   position: absolute;
-  top: 18px;
-  right: 80px;
-  background-color: none;
+  top: 0px;
+  right: 75px;
+
   color: red;
   border-radius: 50%;
   padding: 5px;
   font-size: 15px;
+  height: 10px;
 }
-.crt-icn {
+/* .crt-icn {
   color: antiquewhite;
+} */
+.collapsed {
+  display: none;
 }
 .toggle-button {
   position: absolute;
@@ -83,9 +87,6 @@ input {
   height: 21px;
 }
 @media (max-width: 700px) {
-  .toggle-button {
-    display: block;
-  }
   .menu {
     display: block;
   }
@@ -104,23 +105,20 @@ input {
   .inp-search {
     width: 50%;
   }
-  .btn-search {
-    width: 20%;
-  }
+
   .header {
     width: 100%;
   }
   .buttons {
     width: 30%;
+    font-size: 20%;
   }
 }
 @media (max-width: 480px) {
   .inp-search {
     width: 30%;
   }
-  .btn-search {
-    width: 10%;
-  }
+
   .buttons {
     column-gap: 0px;
   }

@@ -1,4 +1,4 @@
-import { lazy } from "react";
+import { lazy, Suspense } from "react";
 import { Routes, Route } from "react-router-dom";
 import "./App.css";
 import Header from "./Components/Header";
@@ -8,7 +8,7 @@ import Nav from "./Components/Nav";
 // import About from "./Components/Body/About";
 // import Product from "./Components/Navigation/Products";
 import Cart from "./Components/Navigation/Cart";
-
+import AnimatedRoutes from "./Components/AnimatedRoutes.jsx";
 import Product from "./Components/Navigation/Products";
 const About = lazy(() => import("./Components/Body/About"));
 const Home = lazy(() => import("./Components/Body/Home"));
@@ -18,17 +18,11 @@ function App() {
   return (
     <div className="App">
       <Header />
-
+      <Nav />
       <main>
-        <Routes className="routes">
-          <Route path="/" element={<Nav />}>
-            <Route path="/" element={<Home />} />
-            <Route path="/cart" element={<Cart />} />
-            <Route path="/products" element={<ProductsList />} />
-            <Route path="/products/:id" element={<Product />} />
-            <Route path="/about" element={<About />} />
-          </Route>
-        </Routes>
+        <Suspense>
+          <AnimatedRoutes />
+        </Suspense>
       </main>
     </div>
   );

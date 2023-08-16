@@ -1,3 +1,5 @@
+import img from "./Images/pants.jpg";
+
 export const Products = [
   {
     id: 1,
@@ -5,6 +7,7 @@ export const Products = [
     img: "https://images.macrumors.com/t/1aW4MKNlmsv_HyxRnORrkGP3qzg=/1600x/article-new/2019/01/iphone11splash.jpg",
     price: 899.0,
     description: "This is an iPhone 11.",
+    type: "electronics",
   },
   {
     id: 2,
@@ -12,6 +15,7 @@ export const Products = [
     img: "https://images.macrumors.com/t/1aW4MKNlmsv_HyxRnORrkGP3qzg=/1600x/article-new/2019/01/iphone11splash.jpg",
     price: 899.0,
     description: "This is an iPhone 12.",
+    type: "electronics",
   },
   {
     id: 3,
@@ -19,6 +23,7 @@ export const Products = [
     img: "https://images.macrumors.com/t/1aW4MKNlmsv_HyxRnORrkGP3qzg=/1600x/article-new/2019/01/iphone11splash.jpg",
     price: 899.0,
     description: "This is an iPhone 13.",
+    type: "electronics",
   },
   {
     id: 4,
@@ -26,6 +31,7 @@ export const Products = [
     img: "https://images.macrumors.com/t/1aW4MKNlmsv_HyxRnORrkGP3qzg=/1600x/article-new/2019/01/iphone11splash.jpg",
     price: 899.0,
     description: "This is an iPhone 14.",
+    type: "electronics",
   },
   {
     id: 5,
@@ -33,6 +39,7 @@ export const Products = [
     img: "https://images.macrumors.com/t/1aW4MKNlmsv_HyxRnORrkGP3qzg=/1600x/article-new/2019/01/iphone11splash.jpg",
     price: 899.0,
     description: "This is an iPhone 10.",
+    type: "electronics",
   },
   {
     id: 6,
@@ -40,6 +47,7 @@ export const Products = [
     img: "https://images.macrumors.com/t/1aW4MKNlmsv_HyxRnORrkGP3qzg=/1600x/article-new/2019/01/iphone11splash.jpg",
     price: 899.0,
     description: "This is an iPhone 9.",
+    type: "electronics",
   },
   {
     id: 7,
@@ -47,6 +55,7 @@ export const Products = [
     img: "https://images.macrumors.com/t/1aW4MKNlmsv_HyxRnORrkGP3qzg=/1600x/article-new/2019/01/iphone11splash.jpg",
     price: 899.0,
     description: "This is an iPhone 9.",
+    type: "electronics",
   },
   {
     id: 8,
@@ -54,6 +63,7 @@ export const Products = [
     img: "https://images.macrumors.com/t/1aW4MKNlmsv_HyxRnORrkGP3qzg=/1600x/article-new/2019/01/iphone11splash.jpg",
     price: 899.0,
     description: "This is an iPhone 9.",
+    type: "electronics",
   },
   {
     id: 9,
@@ -61,6 +71,7 @@ export const Products = [
     img: "https://images.macrumors.com/t/1aW4MKNlmsv_HyxRnORrkGP3qzg=/1600x/article-new/2019/01/iphone11splash.jpg",
     price: 899.0,
     description: "This is an iPhone 9.",
+    type: "electronics",
   },
   {
     id: 10,
@@ -68,5 +79,54 @@ export const Products = [
     img: "https://images.macrumors.com/t/1aW4MKNlmsv_HyxRnORrkGP3qzg=/1600x/article-new/2019/01/iphone11splash.jpg",
     price: 899.0,
     description: "This is an iPhone 9.",
+    type: "electronics",
+  },
+  {
+    id: 11,
+    name: "shorts",
+    img: "https://images.macrumors.com/t/1aW4MKNlmsv_HyxRnORrkGP3qzg=/1600x/article-new/2019/01/iphone11splash.jpg",
+    price: 599.0,
+    description: "This is an iPhone 9.",
+    type: "wear",
+  },
+  {
+    id: 12,
+    name: "tshirt",
+    img: "https://images.macrumors.com/t/1aW4MKNlmsv_HyxRnORrkGP3qzg=/1600x/article-new/2019/01/iphone11splash.jpg",
+    price: 299.0,
+    description: "This is an iPhone 9.",
+    type: "wear",
+  },
+  {
+    id: 13,
+    name: "pants",
+    img: img,
+    price: 399.0,
+    description: "This is an iPhone 9.",
+    type: "wear",
+  },
+  {
+    id: 14,
+    name: "caps",
+    img: "https://images.macrumors.com/t/1aW4MKNlmsv_HyxRnORrkGP3qzg=/1600x/article-new/2019/01/iphone11splash.jpg",
+    price: 99.0,
+    description: "This is an iPhone 9.",
+    type: "wear",
+  },
+  {
+    id: 15,
+    name: "shades",
+    img: "https://images.macrumors.com/t/1aW4MKNlmsv_HyxRnORrkGP3qzg=/1600x/article-new/2019/01/iphone11splash.jpg",
+    price: 299.0,
+    description: "This is an iPhone 9.",
+    type: "wear",
+  },
+  {
+    id: 16,
+    name: "polo",
+    img: "https://images.macrumors.com/t/1aW4MKNlmsv_HyxRnORrkGP3qzg=/1600x/article-new/2019/01/iphone11splash.jpg",
+    price: 699.0,
+    description: "This is an iPhone 9.",
+    type: "wear",
   },
 ];
