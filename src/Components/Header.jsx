@@ -1,6 +1,12 @@
-import React, { useState, useContext } from "react";
+import React, {
+  useState,
+  useContext,
+  useEffect,
+  startTransition,
+  useCallback,
+} from "react";
 import "../Css/header.css";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import * as FaIcons from "react-icons/fa";
 import * as FaIconz from "react-icons/fi";
 import useWindowSizeHook from "./Custom-Hooks/useWindowSizeHook";
@@ -8,10 +14,17 @@ import { CartContext } from "./Provider/cartProvider";
 const Header = () => {
   const { width } = useWindowSizeHook();
   const [isCollapsed, setIsCollapsed] = useState(true);
-  const { cartItemCount, state, search, setSearch } = useContext(CartContext);
+  const { cartItemCount, state, search, setSearch, isLoggedIn, setIsLoggedIn } =
+    useContext(CartContext);
+  const logout = useNavigate();
   const toggleNavbar = () => {
     setIsCollapsed(!isCollapsed);
   };
+  const handleLogOut = useCallback(() => {
+    startTransition(() => {
+      setIsLoggedIn(false);
+    });
+  }, []);
 
   return (
     <div className="header">
@@ -45,7 +58,9 @@ const Header = () => {
         </Link>
         <FaIconz.FiSettings size={15} className="links" />
 
-        <button className="item">LogOut</button>
+        <button className="item" onClick={handleLogOut}>
+          LogOut
+        </button>
         <button className="menu" onClick={toggleNavbar}>
           <FaIconz.FiMenu />
         </button>

@@ -8,13 +8,15 @@ import { AnimatePresence } from "framer-motion";
 
 const About = lazy(() => import("./Body/About"));
 const Home = lazy(() => import("./Body/Home"));
+const Register = lazy(() => import("./Navigation/Register.jsx"));
 const ProductsList = lazy(() => import("./Body/ProductsList"));
 const AnimatedRoutes = () => {
   const location = useLocation();
   return (
     <AnimatePresence>
       <Routes className="routes" location={location} key={location.pathname}>
-        <Route path="/" element={<Home />} />
+        <Route exact path="/" element={<Home />} />
+        <Route exact path="/home" element={<Home />} />
         <Route path="/cart" element={<Cart />} />
         <Route path="/products" element={<ProductsList />} />
         <Route path="/products/:id" element={<Product />} />
