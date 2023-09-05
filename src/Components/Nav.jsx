@@ -16,9 +16,6 @@ const Nav = () => {
           <p className="nav-items">about</p>
         </Link>
       </nav>
-      <Suspense>
-        <Outlet />
-      </Suspense>
     </>
   );
 };

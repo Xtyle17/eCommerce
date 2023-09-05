@@ -8,7 +8,7 @@ import { AnimatePresence } from "framer-motion";
 
 const About = lazy(() => import("./Body/About"));
 const Home = lazy(() => import("./Body/Home"));
-const Register = lazy(() => import("./Navigation/Register.jsx"));
+
 const ProductsList = lazy(() => import("./Body/ProductsList"));
 const AnimatedRoutes = () => {
   const location = useLocation();

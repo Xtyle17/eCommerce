@@ -56,7 +56,7 @@ export const CartProvider = ({ children }) => {
         state,
         dispatch,
         setCartItemCounts,
-        cartItemCounts,
+
         cartItemCount,
         calculateTotal,
         getTotalQuantity,
