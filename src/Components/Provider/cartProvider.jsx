@@ -1,7 +1,7 @@
 import React, { createContext, useReducer, useState, useEffect } from "react";
 import { reducer, initialState } from "../reducer";
 import { Products } from "../../Products/products";
-export const CartContext = createContext();
+export const CartContext = createContext(null);
 
 export const CartProvider = ({ children }) => {
   const [isLoggedIn, setIsLoggedIn] = useState(true);
