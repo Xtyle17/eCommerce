@@ -1,4 +1,4 @@
-import React, { useState, useReducer, useContext } from "react";
+import React, { useState, useReducer, useContext, useEffect } from "react";
 import { motion } from "framer-motion";
 import "../../Css/products.css";
 import { Link } from "react-router-dom";
@@ -15,13 +15,17 @@ const ProductsList = () => {
     { length: Math.ceil(searchResult.length / productsPerPage) },
     (_, index) => index + 1
   );
-  console.log(pages);
+
   const indexOfLastProduct = currentPage * productsPerPage;
   const indexOfFirstProduct = indexOfLastProduct - productsPerPage;
   const currentProducts = searchResult.slice(
     indexOfFirstProduct,
     indexOfLastProduct
   );
+  useEffect(() => {
+    setCurrentPage(1);
+  }, [productType]);
+
   const handlePageChange = (pageNumber) => {
     setCurrentPage(pageNumber);
   };
