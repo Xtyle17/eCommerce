@@ -15,6 +15,7 @@ const AddToCart = ({ product }) => {
       <button
         ref={buttonRef}
         type="submit"
+        className="border-1 border-black p-1 bg-gray-600 text-white"
         onClick={() => handleClick(product)}>
         Add to cart
       </button>

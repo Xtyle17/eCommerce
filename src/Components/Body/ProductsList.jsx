@@ -78,13 +78,14 @@ const ProductsList = () => {
                 ? product.description
                 : `${product.description.slice(0, 15)}...`}
             </p>
-            <AddToCart product={product} />
+            <AddToCart product={product} className="border-1" />
           </motion.div>
         ))}
       </motion.div>
-      <div>
+      <div className="flex flex-row gap-x-2">
         {pages.map((page) => (
           <button
+            className="items-center w-7 bg-red-300"
             key={page}
             onClick={() => handlePageChange(page)}
             disabled={page === currentPage}>

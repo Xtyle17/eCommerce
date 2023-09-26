@@ -34,7 +34,7 @@ const Header = () => {
   }, []);
 
   return (
-    <div className="header">
+    <div className="header bg-red-400">
       <div className="Logo">
         <Link to={"/"}>
           <img src="shop.png"></img>
