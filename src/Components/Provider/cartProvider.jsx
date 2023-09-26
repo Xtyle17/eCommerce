@@ -1,6 +1,7 @@
 import React, { createContext, useReducer, useState, useEffect } from "react";
 import { reducer, initialState } from "../reducer";
 import { Products } from "../../Products/products";
+import useWindowSizeHook from "../Custom-Hooks/useWindowSizeHook";
 export const CartContext = createContext(null);
 
 export const CartProvider = ({ children }) => {
@@ -11,6 +12,7 @@ export const CartProvider = ({ children }) => {
   const [search, setSearch] = useState("");
   const [searchResult, setSearchResult] = useState([]);
   const [productType, setProductType] = useState("");
+  const [isClass, setIsClass] = useState({ pc: "webpc", phone: "phone" });
   const cartItemCount = state.cart.reduce(
     (acc, item) => (acc += item.count),
     0
@@ -56,7 +58,8 @@ export const CartProvider = ({ children }) => {
         state,
         dispatch,
         setCartItemCounts,
-
+        isClass,
+        setIsClass,
         cartItemCount,
         calculateTotal,
         getTotalQuantity,

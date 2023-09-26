@@ -1,11 +1,12 @@
 #root {
-  max-width: 1280px;
+  width: 100%;
   margin: 0 auto;
 }
 
 .App {
   display: flex;
   flex-direction: column;
+  width: 100%;
 }
 
 main {

@@ -6,7 +6,7 @@ import React, {
   useCallback,
 } from "react";
 import "../Css/header.css";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import * as FaIcons from "react-icons/fa";
 import * as FaIconz from "react-icons/fi";
 import useWindowSizeHook from "./Custom-Hooks/useWindowSizeHook";
@@ -14,9 +14,16 @@ import { CartContext } from "./Provider/cartProvider";
 const Header = () => {
   const { width } = useWindowSizeHook();
   const [isCollapsed, setIsCollapsed] = useState(true);
-  const { cartItemCount, state, search, setSearch, isLoggedIn, setIsLoggedIn } =
-    useContext(CartContext);
-  const logout = useNavigate();
+  const {
+    cartItemCount,
+    state,
+    search,
+    setSearch,
+    isLoggedIn,
+    setIsLoggedIn,
+    isClass,
+  } = useContext(CartContext);
+
   const toggleNavbar = () => {
     setIsCollapsed(!isCollapsed);
   };
@@ -47,7 +54,7 @@ const Header = () => {
         </button>
       </form>
 
-      <div className="buttons-links">
+      <div className={width < 768 ? isClass.phone : isClass.pc}>
         <FaIconz.FiUser className="links" />
         <Link to={"/cart"} className="link">
           <FaIcons.FaShoppingCart
