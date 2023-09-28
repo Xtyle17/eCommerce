@@ -105,7 +105,7 @@ const ProductsList = () => {
                   transition: { duration: 0 },
                 }}>
                 <Link to={`/products/${product.id}`}>
-                  <img src={product.img} className="w-32"></img>
+                  <img src={product.img} className="w-36"></img>
                   <h2>{product.name}</h2>
                 </Link>
                 <h4>${product.price}</h4>
