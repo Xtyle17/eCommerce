@@ -86,9 +86,14 @@ input {
   width: 30px;
   height: 21px;
 }
-@media (min-width: 760px){
+@media (max-width: 760px){
   .rdn-cnt{
     right: 35px;
+  }
+}
+@media (max-width: 280px){
+  .rdn-cnt{
+    right: 50px;
   }
 }
 
