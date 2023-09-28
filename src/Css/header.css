@@ -86,6 +86,11 @@ input {
   width: 30px;
   height: 21px;
 }
+@media (min-width: 760px){
+  .rdn-cnt{
+    right: 35px;
+  }
+}
 
 @media (min-width: 700px) {
   .menu {
