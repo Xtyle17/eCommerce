@@ -63,13 +63,13 @@ input {
   position: absolute;
   top: 0px;
   right: 75px;
-
   color: red;
   border-radius: 50%;
   padding: 5px;
   font-size: 15px;
   height: 10px;
 }
+
 /* .crt-icn {
   color: antiquewhite;
 } */
@@ -85,6 +85,12 @@ input {
   justify-content: space-between;
   width: 30px;
   height: 21px;
+}
+@media (max-width: 768px) {
+  .rdn-cnt {
+    top: 0rem;
+    right: 30px;
+  }
 }
 
 @media (min-width: 700px) {
