@@ -1,5 +1,5 @@
 import React, { Suspense } from "react";
-import { Outlet, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { Products } from "../../Products/products";
 
 const Product = () => {

@@ -88,8 +88,12 @@ input {
 }
 @media (max-width: 768px) {
   .rdn-cnt {
-    top: 0rem;
-    right: 30px;
+    right: 35px;
+  }
+}
+@media (max-width: 280px) {
+  .rdn-cnt {
+    right: 50px;
   }
 }
 
