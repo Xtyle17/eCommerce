@@ -1,11 +1,11 @@
 import React, { createContext, useReducer, useState, useEffect } from "react";
 import { reducer, initialState } from "../reducer";
 import { Products } from "../../Products/products";
-import useWindowSizeHook from "../Custom-Hooks/useWindowSizeHook";
-export const CartContext = createContext(null);
+
+export const CartContext = createContext();
 
 export const CartProvider = ({ children }) => {
-  const [isLoggedIn, setIsLoggedIn] = useState(true);
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [totals, setTotals] = useState(0);
   const [cartItemCounts, setCartItemCounts] = useState(0);
   const [state, dispatch] = useReducer(reducer, initialState);

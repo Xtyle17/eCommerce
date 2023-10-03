@@ -1,7 +1,6 @@
 import React, {
   useState,
   useContext,
-  useEffect,
   startTransition,
   useCallback,
 } from "react";
@@ -14,15 +13,8 @@ import { CartContext } from "./Provider/cartProvider";
 const Header = () => {
   const { width } = useWindowSizeHook();
   const [isCollapsed, setIsCollapsed] = useState(true);
-  const {
-    cartItemCount,
-    state,
-    search,
-    setSearch,
-    isLoggedIn,
-    setIsLoggedIn,
-    isClass,
-  } = useContext(CartContext);
+  const { cartItemCount, state, search, setSearch, setIsLoggedIn, isClass } =
+    useContext(CartContext);
 
   const toggleNavbar = () => {
     setIsCollapsed(!isCollapsed);
