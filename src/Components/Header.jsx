@@ -3,6 +3,7 @@ import React, {
   useContext,
   startTransition,
   useCallback,
+  useEffect,
 } from "react";
 import "../Css/header.css";
 import { Link } from "react-router-dom";
@@ -13,18 +14,18 @@ import { CartContext } from "./Provider/cartProvider";
 const Header = () => {
   const { width } = useWindowSizeHook();
   const [isCollapsed, setIsCollapsed] = useState(true);
-  const { cartItemCount, state, search, setSearch, setIsLoggedIn, isClass } =
+  const { cartItemCount, search, setSearch, setIsLoggedIn, isClass } =
     useContext(CartContext);
 
   const toggleNavbar = () => {
     setIsCollapsed(!isCollapsed);
   };
-  const handleLogOut = useCallback(() => {
-    startTransition(() => {
-      setIsLoggedIn(false);
-    });
-  }, []);
 
+  useEffect(() => {
+    if (width > 768 && !isCollapsed) {
+      setIsCollapsed(true);
+    }
+  }, [width, isCollapsed]);
   return (
     <div className="header bg-red-400">
       <div className="Logo">
@@ -57,16 +58,12 @@ const Header = () => {
         </Link>
         <FaIconz.FiSettings size={15} className="links" />
 
-        <button className="item" onClick={handleLogOut}>
-          LogOut
-        </button>
         <button className="menu" onClick={toggleNavbar}>
           <FaIconz.FiMenu />
         </button>
         <ul className={isCollapsed ? "collapsed" : ""}>
           <li>Account</li>
           <li>settings</li>
-          <li>logout</li>
         </ul>
       </div>
     </div>

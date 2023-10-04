@@ -1,11 +1,14 @@
 import { useState, useRef, useEffect } from "react";
-import { Link } from "react-router-dom";
+import { Link, Navigate, useNavigate } from "react-router-dom";
+
 import "../../Css/register.css";
 //mostly should be done in backend
 // const USER_REGEX = /^[a-zA-Z0-9]{3,20}+([._]?[a-zA-Z0-9]+)*$/;
 // const PASS_REGEX = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/;
 
 const Register = () => {
+  const history = useNavigate();
+
   //   const userRef = useRef();
   //   const errorRef = useRef();
 
@@ -36,6 +39,12 @@ const Register = () => {
   //     setValidMatch(match);
   //   }, [pass, matchPass]);
 
+  const onSubmit = (e) => {
+    e.preventDefault();
+    window.alert("successfully registered");
+    history("/login");
+  };
+
   return (
     <div className="flex flex-col  justify-center items-center min-h-screen bg-amber-300 ">
       <div
@@ -43,7 +52,10 @@ const Register = () => {
       lg:w-[500px] ">
         <h1>Registration</h1>
 
-        <form action="" className="flex flex-col  gap-y-2">
+        <form
+          action=""
+          className="flex flex-col  gap-y-2"
+          onSubmit={(e) => onSubmit(e)}>
           <input
             type="email"
             required
