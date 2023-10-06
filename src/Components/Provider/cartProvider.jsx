@@ -5,7 +5,7 @@ import { Products } from "../../Products/products";
 export const CartContext = createContext();
 
 export const CartProvider = ({ children }) => {
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [isLoggedIn, setIsLoggedIn] = useState(true);
   const [totals, setTotals] = useState(0);
   const [cartItemCounts, setCartItemCounts] = useState(0);
   const [state, dispatch] = useReducer(reducer, initialState);

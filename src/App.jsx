@@ -1,4 +1,5 @@
-import { lazy, Suspense, useContext } from "react";
+import React, { lazy, Suspense, useContext, useEffect } from "react";
+
 import "./App.css";
 import Header from "./Components/Header";
 import Nav from "./Components/Nav";
@@ -9,15 +10,31 @@ import Footer from "./Components/Footer/Footer";
 // import Product from "./Components/Navigation/Products";
 import AnimatedRoutes from "./Components/AnimatedRoutes.jsx";
 import { CartContext, CartProvider } from "./Components/Provider/cartProvider";
+import { Route, Routes } from "react-router-dom";
+// import Login from "./Components/Navigation/login";
+// import Register from "./Components/Navigation/Register";
 const About = lazy(() => import("./Components/Body/About"));
 const Home = lazy(() => import("./Components/Body/Home"));
 const ProductsList = lazy(() => import("./Components/Body/ProductsList"));
 const Register = lazy(() => import("./Components/Navigation/Register"));
-const login = lazy(() => import("./Components/Navigation/login"));
+const Loginz = lazy(() => import("./Components/Navigation/login"));
+import StartingRoute from "./Components/StartingRoute";
 
 function App() {
-  const { isLoggedIn, setIsLoggedIn } = useContext(CartContext);
-
+  const { isLoggedIn } = useContext(CartContext);
+  const logic = isLoggedIn ? (
+    <>
+      <Header />
+      <Nav />
+      <main>
+        <Suspense fallback={<div>loading..</div>}>
+          <AnimatedRoutes />
+        </Suspense>
+      </main>
+    </>
+  ) : (
+    <Register />
+  );
   return (
     <div className="flex flex-col justify-center">
       <CartProvider>
