@@ -61,7 +61,7 @@ const Header = () => {
         <button className="menu" onClick={toggleNavbar}>
           <FaIconz.FiMenu />
         </button>
-        <ul className={isCollapsed ? "collapsed" : ""}>
+        <ul className={isCollapsed ? "collapsed" : "show "}>
           <li>Account</li>
           <li>settings</li>
         </ul>

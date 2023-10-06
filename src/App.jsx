@@ -33,7 +33,7 @@ function App() {
       </main>
     </>
   ) : (
-    <Register />
+    <StartingRoute />
   );
   return (
     <div className="flex flex-col justify-center">

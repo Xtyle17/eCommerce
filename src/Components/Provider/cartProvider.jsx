@@ -17,7 +17,7 @@ export const CartProvider = ({ children }) => {
     (acc, item) => (acc += item.count),
     0
   );
-
+  //for calculating the to total price
   const calculateTotal = () => {
     let total = totals;
     state.cart.map((item) => {
@@ -31,7 +31,7 @@ export const CartProvider = ({ children }) => {
     // }
     return total;
   };
-
+  //for calculating total quantities
   const getTotalQuantity = () => {
     let quantity = 0;
     state.cart.map((item) => {
@@ -40,7 +40,7 @@ export const CartProvider = ({ children }) => {
     });
     return quantity;
   };
-
+  //gets the result by either fetching/searching and/or picking type of items
   useEffect(() => {
     const filteredResult = Products.filter(
       (items) =>

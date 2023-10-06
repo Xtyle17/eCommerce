@@ -62,7 +62,7 @@ input {
 .rdn-cnt {
   position: absolute;
   top: 0px;
-  right: 75px;
+  right: 40px;
   color: red;
   border-radius: 50%;
   padding: 5px;
@@ -76,6 +76,21 @@ input {
 .collapsed {
   display: none;
 }
+.show {
+  width: 100px;
+  align-items: center;
+  height: 65px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  position: absolute;
+  z-index: 2;
+  top: 50px;
+  right: 5px;
+  background-color: black;
+  opacity: 0.8;
+  color: white;
+}
 .toggle-button {
   position: absolute;
   top: 0.75rem;
@@ -88,12 +103,7 @@ input {
 }
 @media (max-width: 768px) {
   .rdn-cnt {
-    right: 35px;
-  }
-}
-@media (max-width: 280px) {
-  .rdn-cnt {
-    right: 50px;
+    right: 43px;
   }
 }
 
@@ -114,14 +124,15 @@ input {
     width: 30%;
     font-size: 20%;
   }
+  .Name {
+    display: none;
+  }
 }
 @media (max-width: 480px) {
   .inp-search {
     width: 30%;
   }
-  .Name {
-    display: none;
-  }
+
   .buttons {
     column-gap: 0px;
   }
@@ -149,6 +160,14 @@ input {
   }
   .menu {
     display: block;
+  }
+}
+@media (max-width: 280px) {
+  .rdn-cnt {
+    right: 52px;
+  }
+  .phone {
+    margin-right: 0px;
   }
 }
 @media (min-width: 768px) {
