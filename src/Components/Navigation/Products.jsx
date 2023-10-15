@@ -1,11 +1,25 @@
-import React, { Suspense } from "react";
+import React, { Suspense, useState } from "react";
+import "../../Css/slider.css";
+import { FaArrowAltCircleRight, FaArrowAltCircleLeft } from "react-icons/fa";
 import { useParams } from "react-router-dom";
 import { Products } from "../../Products/products";
 
 const Product = () => {
+  const [current, setCurrent] = useState(0);
+
   const { id } = useParams();
   const items = Products.find((item) => item.id.toString() === id);
+  const length = items.img.length;
+  const nextSlide = () => {
+    setCurrent(current === length - 1 ? 0 : current + 1);
+  };
 
+  const prevSlide = () => {
+    setCurrent(current === 0 ? length - 1 : current - 1);
+  };
+  if (!Array.isArray(items.img) || items.img.length <= 0) {
+    return null;
+  }
   if (!items) {
     return (
       <main>
@@ -22,7 +36,21 @@ const Product = () => {
   return (
     <div>
       <div>
-        <img src={items.img} />
+        <section className="slider">
+          <FaArrowAltCircleLeft className="left-arrow" onClick={prevSlide} />
+          <FaArrowAltCircleRight className="right-arrow" onClick={nextSlide} />
+          {items.img.map((slide, index) => {
+            return (
+              <div
+                className={index === current ? "slide active" : "slide"}
+                key={index}>
+                {index === current && (
+                  <img src={slide} alt="travel image" className="image" />
+                )}
+              </div>
+            );
+          })}
+        </section>
         <h1>{items.name}</h1>
         <h3>{items.price}</h3>
       </div>

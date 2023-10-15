@@ -46,17 +46,17 @@ const Cart = () => {
                 <span>quantity:{item.count}</span>
                 <div className="functions">
                   <button
-                    className="btn-decrement"
+                    className="btn-decrement w-[25px] h-[20px]"
                     onClick={() => handleDecrement(item)}>
                     -
                   </button>
                   <button
                     onClick={() => handleClick(item.id)}
-                    className="prod-count">
+                    className="prod-count px-2 hover:bg-red-600 transition duration-400 ease-in-out">
                     remove to cart
                   </button>
                   <button
-                    className="btn-increment"
+                    className="btn-increment w-[25px] h-[20px]"
                     onClick={() => handleIncrement(item)}>
                     +
                   </button>

@@ -15,6 +15,7 @@ export const ACTIONS = {
 
 export const reducer = (state, action) => {
   switch (action.type) {
+    //logic for adding count whenever i add to cart
     case ACTIONS.ADD_CART:
       const existingItem = state.cart.find(
         (cartItem) => cartItem.id === action.payload.item.id

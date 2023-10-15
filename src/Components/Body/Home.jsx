@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 import Footer from "../Footer/Footer";
 const Home = () => {
   return (
-    <div className="flex flex-col justify-between">
+    <div className="flex flex-col justify-between min-h-screen">
       <motion.div
         initial={{ opacity: 0, width: 0 }}
         animate={{ opacity: 1, width: "100%" }}
@@ -15,7 +15,7 @@ const Home = () => {
         Home
       </motion.div>
 
-      <div className="absolute left-2/4 bottom-0">
+      <div className="foot relative bottom-[-60px] flex justify-center">
         <Footer />
       </div>
     </div>
