@@ -30,7 +30,7 @@ const Header = () => {
     <div className="header bg-red-400">
       <div className="Logo">
         <Link to={"/"}>
-          <img src="shop.png"></img>
+          <img src="https://www.svgrepo.com/show/217771/shopping-logo.svg"></img>
         </Link>
         <h2 className="Name">shopping</h2>
       </div>
