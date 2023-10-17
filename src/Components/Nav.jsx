@@ -1,20 +1,32 @@
 import React, { Suspense } from "react";
-import { Link, Outlet } from "react-router-dom";
+import { Link, NavLink, Outlet } from "react-router-dom";
 import "../Css/Nav.css";
 
 const Nav = () => {
   return (
     <>
       <nav>
-        <Link to={"/"}>
-          <p className="nav-items">home</p>
-        </Link>
-        <Link to={"/products"}>
-          <p className="nav-items">products</p>
-        </Link>
-        <Link to={"/about"}>
-          <p className="nav-items">about</p>
-        </Link>
+        <NavLink
+          to="/"
+          className={({ isActive, isPending }) =>
+            isPending ? "pending" : isActive ? "active" : ""
+          }>
+          Home
+        </NavLink>
+        <NavLink
+          to="/products"
+          className={({ isActive, isPending }) =>
+            isPending ? "pending" : isActive ? "active" : ""
+          }>
+          Products
+        </NavLink>
+        <NavLink
+          to="/about"
+          className={({ isActive, isPending }) =>
+            isPending ? "pending" : isActive ? "active" : ""
+          }>
+          About
+        </NavLink>
         <Suspense>
           <Outlet />
         </Suspense>

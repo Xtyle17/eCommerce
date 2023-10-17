@@ -3,12 +3,14 @@ import "../../Css/slider.css";
 import { FaArrowAltCircleRight, FaArrowAltCircleLeft } from "react-icons/fa";
 import { useParams } from "react-router-dom";
 import { Products } from "../../Products/products";
+import AddToCart from "../Body/AddToCart";
 
 const Product = () => {
   const [current, setCurrent] = useState(0);
 
   const { id } = useParams();
   const items = Products.find((item) => item.id.toString() === id);
+  //for slider carousel
   const length = items.img.length;
   const nextSlide = () => {
     setCurrent(current === length - 1 ? 0 : current + 1);
@@ -35,7 +37,7 @@ const Product = () => {
   }
   return (
     <div>
-      <div>
+      <div className="flex flex-col justify-center items-center mt-4">
         <section className="slider">
           <FaArrowAltCircleLeft className="left-arrow" onClick={prevSlide} />
           <FaArrowAltCircleRight className="right-arrow" onClick={nextSlide} />
@@ -44,9 +46,9 @@ const Product = () => {
               <div
                 className={index === current ? "slide active" : "slide"}
                 key={index}>
-                {index === current && (
+                {index === current ? (
                   <img src={slide} alt="travel image" className="image" />
-                )}
+                ) : null}
               </div>
             );
           })}
@@ -54,6 +56,7 @@ const Product = () => {
         <h1>{items.name}</h1>
         <h3>{items.price}</h3>
       </div>
+      <AddToCart product={items} />
     </div>
   );
 };
