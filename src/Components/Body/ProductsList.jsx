@@ -30,7 +30,7 @@ const ProductsList = () => {
   };
 
   return (
-    <>
+    <div key="unique-key-for-products">
       <form className="border-2 w-[130px] p-2 pl-5  m-2 ">
         <p>Types:</p>
         <label className="flex ">
@@ -89,30 +89,34 @@ const ProductsList = () => {
                 x: window.innerWidth,
                 transition: { duration: 0 },
               }}>
-              {currentProducts.map((product) => (
-                <motion.div
-                  key={product.id}
-                  className="items"
-                  initial={{ opacity: 0, width: 0 }}
-                  animate={{ opacity: 1, width: "80%" }}
-                  exit={{
-                    opacity: 0,
-                    x: window.innerWidth,
-                    transition: { duration: 0 },
-                  }}>
-                  <Link to={`/products/${product.id}`}>
-                    <img src={product.img[0]} className="w-36"></img>
-                    <h2>{product.name}</h2>
-                  </Link>
-                  <h4>${product.price}</h4>
-                  <p>
-                    {product.description.length <= 15
-                      ? product.description
-                      : `${product.description.slice(0, 15)}...`}
-                  </p>
-                  <AddToCart product={product} />
-                </motion.div>
-              ))}
+              {currentProducts.length > 0 ? (
+                currentProducts.map((product) => (
+                  <motion.div
+                    key={product.id}
+                    className="items"
+                    initial={{ opacity: 0, width: 0 }}
+                    animate={{ opacity: 1, width: "80%" }}
+                    exit={{
+                      opacity: 0,
+                      x: window.innerWidth,
+                      transition: { duration: 0 },
+                    }}>
+                    <Link to={`/products/${product.id}`}>
+                      <img src={product.img[0]} className="w-36"></img>
+                      <h2>{product.name}</h2>
+                    </Link>
+                    <h4>${product.price}</h4>
+                    <p>
+                      {product.description.length <= 15
+                        ? product.description
+                        : `${product.description.slice(0, 15)}...`}
+                    </p>
+                    <AddToCart product={product} />
+                  </motion.div>
+                ))
+              ) : (
+                <div>Cannot find the item.</div>
+              )}
             </motion.div>
             <div className="flex flex-row gap-x-2 mt-3 mb-2">
               {pages.map((page) => (
@@ -131,7 +135,7 @@ const ProductsList = () => {
           <Footer />
         </div>
       </div>
-    </>
+    </div>
   );
 };
 

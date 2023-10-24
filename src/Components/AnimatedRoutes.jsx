@@ -6,7 +6,7 @@ import Login from "./Navigation/login";
 // import Nav from "./Nav";
 import Cart from "./Navigation/Cart";
 import Product from "./Navigation/Products";
-import { AnimatePresence } from "framer-motion";
+import { AnimatePresence, AnimateSharedLayout } from "framer-motion";
 import { CartContext } from "./Provider/cartProvider";
 const About = lazy(() => import("./Body/About"));
 const Home = lazy(() => import("./Body/Home"));
