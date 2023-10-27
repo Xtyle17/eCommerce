@@ -22,24 +22,24 @@ import StartingRoute from "./Components/StartingRoute";
 
 function App() {
   const { isLoggedIn } = useContext(CartContext);
-  const logic = isLoggedIn ? (
-    <>
-      <Header />
-      <Nav />
-      <main>
-        <Suspense fallback={<div>loading..</div>}>
-          <AnimatedRoutes />
-        </Suspense>
-      </main>
-    </>
-  ) : (
-    <StartingRoute />
-  );
+  // const logic = isLoggedIn ? (
+  //   <>
+  //     <Header />
+  //     <Nav />
+  //     <main>
+  //       <Suspense fallback={<div>loading..</div>}>
+  //         <AnimatedRoutes />
+  //       </Suspense>
+  //     </main>
+  //   </>
+  // ) : (
+  //   <StartingRoute />
+  // );
   return (
     <div className="flex flex-col justify-center">
       <CartProvider>
         <div className="App">
-          {isLoggedIn ? (
+          {/* {isLoggedIn ? (
             <>
               <Header />
               <Nav />
@@ -51,14 +51,14 @@ function App() {
             </>
           ) : (
             <Register />
-          )}
-          {/* <Header />
+          )} */}
+          <Header />
           <Nav />
           <main>
             <Suspense fallback={<div>loading..</div>}>
               <AnimatedRoutes />
             </Suspense>
-          </main> */}
+          </main>
         </div>
       </CartProvider>
     </div>

@@ -10,17 +10,24 @@ const ProductsList = () => {
   const [currentPage, setCurrentPage] = useState(1);
   const productsPerPage = 5;
   const { searchResult, productType, setProductType } = useContext(CartContext);
+
+  //this is for pages using array.from where it create an array with the length
+  //depending on the value of the math.ceil
+  //then the index will be 0,1,2,3 but when mapped it is incremented by 1
+  //array like obj has a length property
   const pages = Array.from(
     { length: Math.ceil(searchResult.length / productsPerPage) },
     (_, index) => index + 1
   );
 
+  // logic for finding the index of the products for displaying it to the DOM
   const indexOfLastProduct = currentPage * productsPerPage;
   const indexOfFirstProduct = indexOfLastProduct - productsPerPage;
   const currentProducts = searchResult.slice(
     indexOfFirstProduct,
     indexOfLastProduct
   );
+  //this is for setting the page back to 1 when changing to types
   useEffect(() => {
     setCurrentPage(1);
   }, [productType]);

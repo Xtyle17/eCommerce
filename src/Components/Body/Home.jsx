@@ -6,12 +6,13 @@ import { Products } from "../../Products/products";
 import "../../Css/home.css";
 
 const Home = () => {
+  //this is just the content for home
   const Content = () => {
     return (
       <div className="Contents">
         <div className="bg-blue-400 p-2 flex flex-col items-center">
           <h1 className="text-3xl">Welcome to our store</h1>
-          <p className="flex text-center">
+          <p>
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate
             assumenda accusantium quos quia, illum quidem fugiat quam eligendi
             nihil suscipit quod, repellat pariatur blanditiis itaque consequatur
@@ -87,7 +88,8 @@ const Home = () => {
           opacity: 0,
           x: "100%",
           transition: { duration: 0.1 },
-        }}>
+        }}
+        transition={{ duration: 0.3, ease: "easeInOut" }}>
         <Content />
       </motion.div>
 

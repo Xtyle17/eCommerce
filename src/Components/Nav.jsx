@@ -3,6 +3,7 @@ import { Link, NavLink, Outlet } from "react-router-dom";
 import "../Css/Nav.css";
 
 const Nav = () => {
+  //conditional rendering for classname
   return (
     <>
       <nav>
