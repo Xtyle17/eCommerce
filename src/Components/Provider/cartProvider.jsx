@@ -6,7 +6,6 @@ export const CartContext = createContext();
 
 export const CartProvider = ({ children }) => {
   const [isLoggedIn, setIsLoggedIn] = useState(true);
-  const [totals, setTotals] = useState(0);
   const [cartItemCounts, setCartItemCounts] = useState(0);
   const [state, dispatch] = useReducer(reducer, initialState);
   const [search, setSearch] = useState("");
@@ -19,10 +18,12 @@ export const CartProvider = ({ children }) => {
   );
   //for calculating the to total price
   const calculateTotal = () => {
-    let total = totals;
+    let total = 0;
     state.cart.map((item) => {
-      const itemTotal = item.price * item.count;
-      total += itemTotal;
+      if (item.checked) {
+        const itemTotal = item.price * item.count;
+        total += itemTotal;
+      }
     });
     // for (const item of state.cart) {
     //   const itemTotal = item.price * item.count;
@@ -34,9 +35,12 @@ export const CartProvider = ({ children }) => {
   //for calculating total quantities
   const getTotalQuantity = () => {
     let quantity = 0;
+
     state.cart.map((item) => {
-      const quantityTotal = item.count;
-      quantity += quantityTotal;
+      if (item.checked) {
+        const quantityTotal = item.count;
+        quantity += quantityTotal;
+      }
     });
     return quantity;
   };

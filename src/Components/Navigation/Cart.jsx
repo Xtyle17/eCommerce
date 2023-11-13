@@ -1,12 +1,14 @@
 import React, { useContext, useReducer } from "react";
 import { reducer, initialState, ACTIONS } from "../reducer";
 import { CartContext } from "../Provider/cartProvider";
+
 import "../../Css/cart.css";
 const Cart = () => {
   const { state, dispatch, calculateTotal, getTotalQuantity } =
     useContext(CartContext);
   const quantity = getTotalQuantity();
   const total = calculateTotal();
+
   const handleClick = (id) => {
     dispatch({ type: ACTIONS.REMOVE_CART, payload: id });
   };
@@ -15,6 +17,9 @@ const Cart = () => {
   };
   const handleDecrement = (id) => {
     dispatch({ type: ACTIONS.DECREMENT_QUANTITY, payload: { item: id } });
+  };
+  const handleCheck = (id) => {
+    dispatch({ type: ACTIONS.HANDLE_CHECK, payload: id });
   };
   console.log(state.cart);
 
@@ -36,6 +41,12 @@ const Cart = () => {
         {state.cart.length ? (
           state.cart.map((item) => (
             <div key={item.id} className="cart">
+              <div>
+                <input
+                  type="checkbox"
+                  checked={item.checked}
+                  onChange={() => handleCheck(item.id)}></input>
+              </div>
               <div className="product">
                 <img src={item.img[0]} alt={item.name} />
                 <h2>{item.name}</h2>

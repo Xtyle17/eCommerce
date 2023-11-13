@@ -14,6 +14,7 @@ import { CartContext } from "./Provider/cartProvider";
 import Home from "./Body/Home";
 import ProductsList from "./Body/ProductsList";
 import About from "./Body/About";
+import CheckOut from "./CheckOut";
 
 const AnimatedRoutes = () => {
   const location = useLocation();
@@ -23,6 +24,7 @@ const AnimatedRoutes = () => {
         <Routes className="routes" location={location} key={location.pathname}>
           <Route path="/" element={<Home />} />
           <Route path="/home" element={<Home />} />
+          <Route path="/checkout" element={<CheckOut />} />
           <Route path="/cart" element={<Cart />} />
           <Route path="/products" element={<ProductsList />} />
           <Route path="/products/:id" element={<Product />} />

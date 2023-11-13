@@ -8,7 +8,7 @@ const Nav = () => {
     <>
       <nav>
         <NavLink
-          to="/"
+          to="/home"
           className={({ isActive, isPending }) =>
             isPending ? "pending" : isActive ? "active" : ""
           }>
