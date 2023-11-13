@@ -110,18 +110,7 @@ export const Products = [
     description: "This is an iPhone 9.",
     type: "electronics",
   },
-  {
-    id: 10,
-    name: "iphone 10",
-    img: [
-      "https://images.macrumors.com/t/1aW4MKNlmsv_HyxRnORrkGP3qzg=/1600x/article-new/2019/01/iphone11splash.jpg",
-      "https://images.macrumors.com/t/1aW4MKNlmsv_HyxRnORrkGP3qzg=/1600x/article-new/2019/01/iphone11splash.jpg",
-      "https://images.macrumors.com/t/1aW4MKNlmsv_HyxRnORrkGP3qzg=/1600x/article-new/2019/01/iphone11splash.jpg",
-    ],
-    price: 899.0,
-    description: "This is an iPhone 9.",
-    type: "electronics",
-  },
+
   {
     id: 11,
     name: "shorts",

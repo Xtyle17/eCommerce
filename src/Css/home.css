@@ -1,0 +1,61 @@
+.Contents {
+  display: grid;
+  gap: 1.5rem;
+  grid-template-columns: 1fr 2fr;
+  grid-template-rows: 1.5fr 0.5fr;
+  grid-template-areas:
+    "welc  phone"
+    "logos logos";
+}
+
+.images {
+  display: grid;
+  align-content: center;
+  justify-content: center;
+}
+.chose {
+  margin-top: 1em;
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(4, 1fr);
+}
+.border {
+  background-color: #d1bb91;
+  border: solid 1px transparent;
+  border-radius: 20px;
+}
+.first {
+  grid-area: welc;
+}
+.second {
+  grid-area: phone;
+}
+.third {
+  grid-area: logos;
+}
+@media screen and (max-width: 768px) {
+  .Contents {
+    display: grid;
+    grid-template-columns: 100%;
+    grid-template-rows: 3fr 5fr;
+    grid-template-areas:
+      "welc"
+      "phone"
+      "logos";
+  }
+  .chose {
+    grid-template-columns: 1fr;
+  }
+  .third {
+    grid-template-columns: 1fr;
+  }
+  .choosing {
+    width: 50% !important;
+    height: 150px !important;
+  }
+}
+@media screen and (max-width: 320px) {
+  .Contents {
+    grid-template-rows: 3fr 2fr;
+  }
+}

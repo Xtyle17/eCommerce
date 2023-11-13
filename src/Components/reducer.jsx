@@ -6,11 +6,11 @@ export const initialState = {
   quantity: 0,
 };
 export const ACTIONS = {
-  ADD_CART: "add_cart",
-  REMOVE_CART: "remove_cart",
-
-  INCREMENT_QUANTITY: "increment_quantity",
-  DECREMENT_QUANTITY: "decrement_quantity",
+  ADD_CART: "ADD_CART",
+  REMOVE_CART: "REMOVE_CART",
+  HANDLE_CHECK: "HANDLE_CHECK",
+  INCREMENT_QUANTITY: "INCREMENT_QUANTITY",
+  DECREMENT_QUANTITY: "DECREMENT_QUANTITY",
 };
 
 export const reducer = (state, action) => {
@@ -33,7 +33,10 @@ export const reducer = (state, action) => {
       } else {
         return {
           ...state,
-          cart: [...state.cart, { ...action.payload.item, count: 1 }],
+          cart: [
+            ...state.cart,
+            { ...action.payload.item, count: 1, checked: false },
+          ],
         };
       }
     case ACTIONS.REMOVE_CART:
@@ -66,6 +69,21 @@ export const reducer = (state, action) => {
             : cartItem
         ),
       };
+
+    case ACTIONS.HANDLE_CHECK:
+      console.log(action.payload.id);
+      return {
+        ...state,
+        cart: state.cart.map((item) =>
+          item.id === action.payload
+            ? {
+                ...item,
+                checked: !item.checked,
+              }
+            : item
+        ),
+      };
+
     default:
       return state;
   }
