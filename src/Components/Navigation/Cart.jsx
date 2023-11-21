@@ -3,6 +3,7 @@ import { reducer, initialState, ACTIONS } from "../reducer";
 import { CartContext } from "../Provider/cartProvider";
 
 import "../../Css/cart.css";
+import { Link } from "react-router-dom";
 const Cart = () => {
   const { state, dispatch, calculateTotal, getTotalQuantity } =
     useContext(CartContext);
@@ -13,25 +14,34 @@ const Cart = () => {
     dispatch({ type: ACTIONS.REMOVE_CART, payload: id });
   };
   const handleIncrement = (id) => {
-    dispatch({ type: ACTIONS.INCREMENT_QUANTITY, payload: { item: id } });
+    dispatch({ type: ACTIONS.INCREMENT_QUANTITY, payload: id });
   };
   const handleDecrement = (id) => {
-    dispatch({ type: ACTIONS.DECREMENT_QUANTITY, payload: { item: id } });
+    dispatch({ type: ACTIONS.DECREMENT_QUANTITY, payload: id });
   };
   const handleCheck = (id) => {
     dispatch({ type: ACTIONS.HANDLE_CHECK, payload: id });
   };
-  console.log(state.cart);
+  const handleCheckOut = () => {
+    dispatch({ type: ACTIONS.CHECK_OUT });
+  };
 
   return (
     <div>
       <div className="head">
-        <h1>CART</h1>
+        <h1></h1>
 
         {state.cart.length ? (
           <div className="ttl">
             <span>Total: {`$${total}`}</span>
             <span>Total Items:{quantity} </span>
+            <Link to={"/checkout"}>
+              <button
+                className="w-24 checkout"
+                onClick={() => handleCheckOut()}>
+                Checkout
+              </button>
+            </Link>
           </div>
         ) : (
           ""
@@ -58,7 +68,7 @@ const Cart = () => {
                 <div className="functions">
                   <button
                     className="btn-decrement w-[25px] h-[20px]"
-                    onClick={() => handleDecrement(item)}>
+                    onClick={() => handleDecrement(item.id)}>
                     -
                   </button>
                   <button
@@ -68,7 +78,7 @@ const Cart = () => {
                   </button>
                   <button
                     className="btn-increment w-[25px] h-[20px]"
-                    onClick={() => handleIncrement(item)}>
+                    onClick={() => handleIncrement(item.id)}>
                     +
                   </button>
                 </div>

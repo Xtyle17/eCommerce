@@ -4,6 +4,7 @@ export const initialState = {
   products: Products,
   cart: [],
   quantity: 0,
+  checkOut: [],
 };
 export const ACTIONS = {
   ADD_CART: "ADD_CART",
@@ -11,6 +12,7 @@ export const ACTIONS = {
   HANDLE_CHECK: "HANDLE_CHECK",
   INCREMENT_QUANTITY: "INCREMENT_QUANTITY",
   DECREMENT_QUANTITY: "DECREMENT_QUANTITY",
+  CHECK_OUT: "CHECK_OUT",
 };
 
 export const reducer = (state, action) => {
@@ -51,7 +53,7 @@ export const reducer = (state, action) => {
       return {
         ...state,
         cart: state.cart.map((cartItem) =>
-          cartItem.id === action.payload.item.id
+          cartItem.id === action.payload
             ? { ...cartItem, count: cartItem.count + 1 }
             : cartItem
         ),
@@ -61,7 +63,7 @@ export const reducer = (state, action) => {
       return {
         ...state,
         cart: state.cart.map((cartItem) =>
-          cartItem.id === action.payload.item.id
+          cartItem.id === action.payload
             ? {
                 ...cartItem,
                 count: cartItem.count > 1 ? cartItem.count - 1 : 1,
@@ -70,8 +72,16 @@ export const reducer = (state, action) => {
         ),
       };
 
+    case ACTIONS.CHECK_OUT:
+      const checkedItems = state.cart.filter((items) => items.checked == true);
+      console.log(checkedItems);
+
+      return {
+        ...state,
+        checkOut: checkedItems,
+      };
+
     case ACTIONS.HANDLE_CHECK:
-      console.log(action.payload.id);
       return {
         ...state,
         cart: state.cart.map((item) =>
