@@ -40,3 +40,25 @@
   display: flex;
   column-gap: 5px;
 }
+.checkout {
+  border: 1px solid black;
+  background-color: skyblue;
+  padding: 0.1em;
+}
+.checkout:hover {
+  transition: 500ms;
+  background-color: red;
+}
+.chkout {
+  display: flex;
+  border: 1px solid black;
+  margin: 5px;
+  padding: 5px;
+  column-gap: 10px;
+  border-radius: 10px;
+}
+@media screen and (min-width: 768px) {
+  .chkout {
+    width: 50%;
+  }
+}
