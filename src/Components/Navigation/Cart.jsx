@@ -25,7 +25,8 @@ const Cart = () => {
   const handleCheckOut = () => {
     dispatch({ type: ACTIONS.CHECK_OUT });
   };
-
+  const checkVerify = state.cart.some((cart) => cart.checked);
+  console.log(checkVerify);
   return (
     <div>
       <div className="head">
@@ -37,7 +38,7 @@ const Cart = () => {
             <span>Total Items:{quantity} </span>
             <Link to={"/checkout"}>
               <button
-                className="w-24 checkout"
+                className={checkVerify ? "w-24 checkout" : "hidden"}
                 onClick={() => handleCheckOut()}>
                 Checkout
               </button>

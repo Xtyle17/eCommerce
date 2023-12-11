@@ -63,6 +63,7 @@ const Content = () => {
               <img
                 src="https://image.shutterstock.com/image-photo/image-260nw-1059620540.jpg"
                 alt="reliable"
+                className="w-[80px] sm:w-[100px] md:w-[50px]"
               />
               <p>we are reliable</p>
             </div>
@@ -74,7 +75,7 @@ const Content = () => {
                 alt="trustworthy"
                 className="w-1/2"
               />
-              <p>we are trustworthy</p>
+              <p> Trustworthy</p>
             </div>
           </div>
           <div className=" flex  justify-center ">
@@ -94,7 +95,7 @@ const Content = () => {
                 alt="trustworthy"
                 className="w-1/2"
               />
-              <p>we care</p>
+              <p>We Care</p>
             </div>
           </div>
         </div>

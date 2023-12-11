@@ -15,7 +15,6 @@ const Product = () => {
   const nextSlide = () => {
     setCurrent(current === length - 1 ? 0 : current + 1);
   };
-
   const prevSlide = () => {
     setCurrent(current === 0 ? length - 1 : current - 1);
   };
@@ -36,15 +35,18 @@ const Product = () => {
     );
   }
   return (
-    <div>
+    <div className="flex flex-col justify-center items-center">
       <div className="flex flex-col justify-center items-center mt-4">
         <section className="slider">
           <FaArrowAltCircleLeft className="left-arrow" onClick={prevSlide} />
           <FaArrowAltCircleRight className="right-arrow" onClick={nextSlide} />
+          {
+            //slide is the current img and the index is its current index
+          }
           {items.img.map((slide, index) => {
             return (
               <div
-                className={index === current ? "slide active" : "slide"}
+                className={index === current ? "slide_active" : "slide"}
                 key={index}>
                 {index === current ? (
                   <img src={slide} alt="travel image" className="image" />
@@ -53,8 +55,10 @@ const Product = () => {
             );
           })}
         </section>
+
         <h1>{items.name}</h1>
-        <h3>{items.price}</h3>
+        <h3>${items.price}</h3>
+        <p>{items.description}</p>
       </div>
       <AddToCart product={items} />
     </div>
