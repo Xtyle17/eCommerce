@@ -1,0 +1,11 @@
+.missions {
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+}
+.developer {
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+}
+.visible {
+  opacity: 1;
+}

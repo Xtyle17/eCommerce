@@ -2,22 +2,20 @@ import React, { useContext, useState } from "react";
 import { CartContext } from "../Components/Provider/cartProvider";
 import { ACTIONS } from "./reducer";
 import { useForm } from "react-hook-form";
+import { Link, useLocation } from "react-router-dom";
 
 const CheckOut = () => {
+  const history = useLocation();
   const [data, setData] = useState([]);
   const { state, dispatch, calculateTotal, getTotalQuantity } =
     useContext(CartContext);
-  if (state.checkOut && state.checkOut.length >= 1) {
-    console.log(state.checkOut);
-  } else {
-    console.log("no chechout");
-  }
+
   const quantity = getTotalQuantity();
   const total = calculateTotal();
   const onSubmit = (e) => {
-    e.preventDefault();
     const { email, address, phoneNumber, cardNumber } = e;
     setData({ email, address, phoneNumber, cardNumber });
+    dispatch({ type: ACTIONS.ON_CHECK_OUT });
   };
   const {
     register,
@@ -67,7 +65,9 @@ const CheckOut = () => {
             <span>Total Price: ${total}</span> <span>Quantity: {quantity}</span>
           </div>
           <div>
-            <form className="flex flex-col min-w-0 md:w-2/4 lg:w-1/4 xl:w-1/4">
+            <form
+              className="flex flex-col min-w-0 md:w-2/4 lg:w-1/4 xl:w-1/4"
+              onSubmit={handleSubmit(onSubmit)}>
               <label>Email Address</label>
               <input
                 className="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring focus:border-blue-300 resize-none"
@@ -107,10 +107,10 @@ const CheckOut = () => {
                 name="cardNumber"
                 {...register("cardNumber", {
                   required: true,
-                  pattern: /^[0-9]{16}$/,
                   maxLength: 16,
                 })}
               />
+              {errors.cardNumber && <p>error card number</p>}
               <div className="flex gap-x-7 items-center">
                 <div className="">
                   <input
@@ -139,7 +139,12 @@ const CheckOut = () => {
           </div>
         </div>
       ) : (
-        ""
+        <>
+          <p>no items for checkout</p>
+          <Link to="/cart">
+            <p>return to cart</p>
+          </Link>
+        </>
       )}
     </div>
   );

@@ -13,6 +13,7 @@ export const ACTIONS = {
   INCREMENT_QUANTITY: "INCREMENT_QUANTITY",
   DECREMENT_QUANTITY: "DECREMENT_QUANTITY",
   CHECK_OUT: "CHECK_OUT",
+  ON_CHECK_OUT: "ON_CHECK_OUT",
 };
 
 export const reducer = (state, action) => {
@@ -79,6 +80,12 @@ export const reducer = (state, action) => {
       return {
         ...state,
         checkOut: checkedItems,
+      };
+    case ACTIONS.ON_CHECK_OUT:
+      return {
+        ...state,
+        cart: state.cart.filter((item) => !item.checked),
+        checkOut: [],
       };
 
     case ACTIONS.HANDLE_CHECK:
