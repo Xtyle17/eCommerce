@@ -86,8 +86,6 @@ const ProductsList = () => {
             transition: { duration: 0 },
           }}>
           <div className="grow-1 w-48 md:w-4/6 h-full lg:w-5/5 flex flex-col content-center justify-center items-center gap-y-5">
-            <h2>PRODUCTS</h2>
-
             <motion.div
               className="products w-5/5 flex gap-x-10 "
               initial={{ opacity: 0, width: 0 }}

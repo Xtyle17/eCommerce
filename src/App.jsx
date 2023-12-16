@@ -17,7 +17,7 @@ const About = lazy(() => import("./Components/Body/About"));
 const Home = lazy(() => import("./Components/Body/Home"));
 const ProductsList = lazy(() => import("./Components/Body/ProductsList"));
 const Register = lazy(() => import("./Components/Navigation/Register"));
-const Loginz = lazy(() => import("./Components/Navigation/login"));
+
 import StartingRoute from "./Components/StartingRoute";
 
 function App() {

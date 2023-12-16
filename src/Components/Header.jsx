@@ -1,12 +1,6 @@
-import React, {
-  useState,
-  useContext,
-  startTransition,
-  useCallback,
-  useEffect,
-} from "react";
+import React, { useState, useContext, useEffect } from "react";
 import "../Css/header.css";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import * as FaIcons from "react-icons/fa";
 import * as FaIconz from "react-icons/fi";
 import useWindowSizeHook from "./Custom-Hooks/useWindowSizeHook";
@@ -14,9 +8,12 @@ import { CartContext } from "./Provider/cartProvider";
 const Header = () => {
   const { width } = useWindowSizeHook();
   const [isCollapsed, setIsCollapsed] = useState(true);
-  const { cartItemCount, search, setSearch, setIsLoggedIn, isClass } =
-    useContext(CartContext);
-
+  const { cartItemCount, search, setSearch, isClass } = useContext(CartContext);
+  const toProducts = useNavigate();
+  const handleSearch = (e) => {
+    e.preventDefault();
+    toProducts("/products");
+  };
   const toggleNavbar = () => {
     setIsCollapsed(!isCollapsed);
   };
@@ -34,15 +31,16 @@ const Header = () => {
         </Link>
         <h2 className="Name">shopping</h2>
       </div>
-      <form className="search" onSubmit={(e) => e.preventDefault()}>
+      <form className="search" onSubmit={(e) => handleSearch(e)}>
         <input
           type="searchbar"
-          className="inp-search"
+          className="inp-search bg-white"
           placeholder="Search..."
           value={search}
           onChange={(e) => setSearch(e.target.value)}
         />
-        <button className="btn-search">
+
+        <button type="submit" className="btn-search">
           <FaIcons.FaSearch style={{ width: "50px" }} />
         </button>
       </form>
