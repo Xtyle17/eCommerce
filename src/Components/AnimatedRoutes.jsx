@@ -1,8 +1,7 @@
 import React, { Suspense, useContext } from "react";
 import { lazy } from "react";
 import { Routes, Route, useLocation } from "react-router-dom";
-import Register from "./Navigation/Register";
-import Login from "./Navigation/login";
+
 // import Nav from "./Nav";
 import Cart from "./Navigation/Cart";
 import Product from "./Navigation/Products";
@@ -29,8 +28,6 @@ const AnimatedRoutes = () => {
           <Route path="/products" element={<ProductsList />} />
           <Route path="/products/:id" element={<Product />} />
           <Route path="/about" element={<About />} />
-          <Route path="/register" element={<Register />} />
-          <Route path="/login" element={<Login />} />
         </Routes>
       </AnimatePresence>
     </Suspense>

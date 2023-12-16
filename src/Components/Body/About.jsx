@@ -13,13 +13,14 @@ const About = () => {
       rootMargin: "0px",
       threshold: 0.5,
     };
-
+    // this prompts when the page loads and if the viewport is show then the contents will be shown with a delay
     const observer = new IntersectionObserver(handleIntersection, opt);
     if (contentRef.current) {
       observer.observe(contentRef.current);
     }
     return () => observer.disconnect();
   }, []);
+
   useEffect(() => {
     const timeOut = [500, 1200, 1800].map((delay, index) => {
       setTimeout(() => {
@@ -94,11 +95,22 @@ const Contents = ({ visible, contentRef, visibleDev }) => {
         </p>
       </div>
       <div
-        className={`developer ${visibleDev ? "visible" : ""}`}
+        className={` mx-auto text-center flex flex-col justify-center items-center w-1/2 gap-y-5 developer  ${
+          visibleDev ? "visible" : ""
+        }`}
         ref={contentRef}>
         <h1>Developer</h1>
-        <p>Name</p>
-        <p>story</p>
+        <img
+          src="https://i.pinimg.com/550x/d9/d7/22/d9d722f1edfada6cb505b93bbdaca9dd.jpg"
+          alt=""
+          className="w-3/5"
+        />
+        <p>Jefferson Kyle Arana</p>
+        <p>
+          I am a self taught developer. I learned Web Development around January
+          2023 and this is my first ever personal project for portfolio using
+          Reactjs
+        </p>
       </div>
     </div>
   );

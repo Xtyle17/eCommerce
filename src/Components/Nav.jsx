@@ -3,11 +3,15 @@ import { Link, NavLink, Outlet } from "react-router-dom";
 import "../Css/Nav.css";
 
 const Nav = () => {
+  const scrollTop = () => {
+    window.scrollTo(0, 0);
+  };
   //conditional rendering for classname
   return (
     <>
       <nav>
         <NavLink
+          onClick={scrollTop}
           to="/home"
           className={({ isActive, isPending }) =>
             isPending ? "pending" : isActive ? "active" : ""
@@ -15,6 +19,7 @@ const Nav = () => {
           Home
         </NavLink>
         <NavLink
+          onClick={scrollTop}
           to="/products"
           className={({ isActive, isPending }) =>
             isPending ? "pending" : isActive ? "active" : ""
@@ -22,6 +27,7 @@ const Nav = () => {
           Products
         </NavLink>
         <NavLink
+          onClick={scrollTop}
           to="/about"
           className={({ isActive, isPending }) =>
             isPending ? "pending" : isActive ? "active" : ""
