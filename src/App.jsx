@@ -16,7 +16,6 @@ import { Route, Routes } from "react-router-dom";
 const About = lazy(() => import("./Components/Body/About"));
 const Home = lazy(() => import("./Components/Body/Home"));
 const ProductsList = lazy(() => import("./Components/Body/ProductsList"));
-const Register = lazy(() => import("./Components/Navigation/Register"));
 
 import StartingRoute from "./Components/StartingRoute";
 
